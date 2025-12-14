@@ -203,7 +203,7 @@ export default function Index() {
           <div className="max-w-5xl mx-auto">
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 mb-8">
               <CardContent className="pt-6">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
                   <div>
                     <img 
                       src="https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/4a535755-765c-44bd-90c2-30f60e47ff9b.jpg" 
@@ -226,14 +226,23 @@ export default function Index() {
                         <p className="text-white/80">Доставляем пиломатериалы собственным манипулятором или транспортом — быстро и надёжно</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Icon name="TreePine" size={24} className="text-[#f97316] flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-semibold text-xl mb-2">Широкий ассортимент</h3>
-                        <p className="text-white/80">Брус, доска, вагонка, имитация бруса, блок-хаус и другие изделия</p>
-                      </div>
-                    </div>
                   </div>
+                </div>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {[
+                    { name: 'Доска обрезная', price: 'от 7 000 ₽/м³', icon: 'Box' },
+                    { name: 'Вагонка', price: 'от 12 000 ₽/м³', icon: 'Album' },
+                    { name: 'Брус', price: 'от 8 500 ₽/м³', icon: 'Container' },
+                    { name: 'Горбыль', price: 'от 500 ₽/м³', icon: 'Layers' },
+                    { name: 'Дрова для печек', price: 'от 2 500 ₽/м³', icon: 'Flame' },
+                    { name: 'Опилки', price: 'от 300 ₽/м³', icon: 'Package' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-white/5 rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all">
+                      <Icon name={item.icon as any} size={32} className="text-[#f97316] mb-3" />
+                      <h4 className="text-white font-semibold text-lg mb-1">{item.name}</h4>
+                      <p className="text-[#f97316] font-bold text-xl">{item.price}</p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -302,9 +311,9 @@ export default function Index() {
               { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/91837d13-c770-4aed-8ffe-0ccc6afe89d8.jpg', title: 'Современный дом', desc: '180 м²' },
               { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/54965ccf-ad18-4495-a6dc-88a251ca0258.jpg', title: 'Двухэтажный дом', desc: '220 м²' },
               { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/91837d13-c770-4aed-8ffe-0ccc6afe89d8.jpg', title: 'Загородный дом', desc: '150 м²' },
-              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/54965ccf-ad18-4495-a6dc-88a251ca0258.jpg', title: 'Дом из бруса', desc: '200 м²' },
-              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/91837d13-c770-4aed-8ffe-0ccc6afe89d8.jpg', title: 'Семейный дом', desc: '170 м²' },
-              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/54965ccf-ad18-4495-a6dc-88a251ca0258.jpg', title: 'Просторный дом', desc: '240 м²' },
+              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/87d8b011-ab85-422f-86a7-c5d6297fbb6f.jpg', title: 'Дом из бруса', desc: '200 м²' },
+              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/fa3e744e-9b9d-47e4-88dd-bed5cb0548d5.jpg', title: 'Семейный дом', desc: '170 м²' },
+              { img: 'https://cdn.poehali.dev/projects/d4ba8d6f-01b6-4d1e-8e2c-c60969e05fbf/files/e1a10c65-f657-47c9-8d37-eb90e3471a16.jpg', title: 'Просторный дом', desc: '240 м²' },
             ].map((item, idx) => (
               <Card key={idx} className="bg-white/10 backdrop-blur-sm border-white/20 overflow-hidden hover:scale-105 transition-transform">
                 <img src={item.img} alt={item.title} className="w-full h-48 object-cover" />
